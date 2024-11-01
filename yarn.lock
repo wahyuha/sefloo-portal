@@ -373,13 +373,6 @@
   resolved "https://registry.yarnpkg.com/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.24.0.tgz#0574d7e87b44ee8511d08cc7f914bcb802b70818"
   integrity sha512-fbMkAF7fufku0N2dE5TBXcNlg0pt0cJue4xBRE2Qc5Vqikxr4VCgKj/ht6SMdFcOacVA9rqF70APJ8RN/4vMJw==
 
-"@sveltejs/adapter-auto@^3.3.0":
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/@sveltejs/adapter-auto/-/adapter-auto-3.3.0.tgz#34ebe894616a53c4bcee4a5e6cc0d8dd5acdeade"
-  integrity sha512-EJZqY7eMM+bdbR898Xt9ufawUHLPJu7w3wPr4Cc+T1iIDf3fufVLWg4C71OluIqsdJqv85E4biKuHo3XXIY0PQ==
-  dependencies:
-    import-meta-resolve "^4.1.0"
-
 "@sveltejs/kit@^2.0.0":
   version "2.7.2"
   resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-2.7.2.tgz#9d799082a466fde4e227cd5bff2193907890f798"
@@ -1232,11 +1225,6 @@ lucide-svelte@^0.454.0:
   version "0.454.0"
   resolved "https://registry.yarnpkg.com/lucide-svelte/-/lucide-svelte-0.454.0.tgz#5d154c1c05f6caa8dce14589c5d69cf55bc39873"
   integrity sha512-TgW17HI7M8LeFZ3NpaDp1LwPGBGMVjx/x81TtK+AacEQvmJcqetqeJNeBT18NMEJP9+zi/Wt+Zc8mo44K5Uszw==
-
-lucide@^0.453.0:
-  version "0.453.0"
-  resolved "https://registry.yarnpkg.com/lucide/-/lucide-0.453.0.tgz#b114a422a2a1f0aa783fc5ed42a13aba0e262a6e"
-  integrity sha512-kg6+hH1NxkSUqmjIOs8cAAIlHWh35VGERx9ZbzoTKqjdp/ydw/QZCf4yL2N/t9ejPsVNW7Sn2NzSO4acmcaJBw==
 
 magic-string@^0.30.11, magic-string@^0.30.12, magic-string@^0.30.5:
   version "0.30.12"
