@@ -6,6 +6,7 @@
     
     interface ProductMedia {
       id: number;
+      media: string;
       media_portal_url: string;
       media_type: string;
     }
@@ -148,7 +149,7 @@
             <div class="bg-white rounded-lg shadow overflow-hidden">
               {#if product.product.product_medias?.[0]?.media_type === 'IMAGE'}
                 <img 
-                  src={`https://api-v2.sefloo.com${product.product.product_medias[0].media_portal_url}`}
+                  src={`https://api-v2.sefloo.com${product.product.product_medias[0].media}`}
                   alt={product.name}
                   class="w-full h-48 object-cover"
                 />
