@@ -23,7 +23,7 @@ function createAuthStore() {
     subscribe,
     login: (token: string, user: { email: string; exp: number }) => {
       if (browser) {
-        const expiresIn = (user.exp * 1000 - Date.now()) / (1000 * 60 * 60 * 24);
+        const expiresIn = Math.ceil((user.exp - Date.now() / 1000) / (60 * 60 * 24));
         
         Cookies.set('access_token', token, {
           expires: expiresIn,
