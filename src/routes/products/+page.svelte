@@ -3,6 +3,8 @@
     import { onMount } from 'svelte';
     import Cookies from 'js-cookie';
     import { Package, Download, FileText } from 'lucide-svelte';
+    import { auth } from '$lib/stores/auth';
+    import { goto } from '$app/navigation';
     
     interface ProductMedia {
       id: number;
@@ -35,6 +37,7 @@
         const token = Cookies.get('access_token');
         if (!token) {
           error = 'Authentication token not found';
+          goto('/');
           return;
         }
         
@@ -43,6 +46,12 @@
             'Authorization': `Bearer ${token}`
           }
         });
+  
+        if (!response.ok) {
+          auth.logout();
+          goto('/');
+          return;
+        }
   
         const result = await response.json();
         
@@ -55,6 +64,8 @@
         }
       } catch (err) {
         error = 'Failed to fetch products';
+        auth.logout();
+        goto('/');
       } finally {
         isLoading = false;
       }
@@ -161,7 +172,9 @@
               
               <div class="p-4">
                 <h3 class="text-lg font-semibold text-gray-900">{product.name}</h3>
-                <p class="mt-1 text-sm text-gray-500">{product.product.description}</p>
+                <div class="mt-1 text-sm text-gray-500 wysiwyg-content">
+                  {@html product.product.description}
+                </div>
                 
                 <div class="mt-4 flex items-center justify-between text-sm text-gray-500">
                   <span>{product.product.product_type}</span>
@@ -230,3 +243,18 @@
       <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
     </div>
   {/if}
+
+  <style>
+    .wysiwyg-content :global(p) {
+      margin-bottom: 0.5rem;
+    }
+    .wysiwyg-content :global(ul), 
+    .wysiwyg-content :global(ol) {
+      margin-left: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .wysiwyg-content :global(a) {
+      color: #3b82f6;
+      text-decoration: underline;
+    }
+  </style>

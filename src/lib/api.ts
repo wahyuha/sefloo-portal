@@ -18,7 +18,7 @@ interface LoginResponse {
   }
   
   export async function loginToPortal(email: string, password: string): Promise<LoginResponse> {
-    const response = await fetch('https://api-v2.sefloo.com/api/portal/login', {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/portal/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
